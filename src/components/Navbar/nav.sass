@@ -1,0 +1,23 @@
+
+nav
+  background: linear-gradient(to bottom,rgb(84, 212, 186), #54b9d0)
+  z-index: 999999
+
+
+.transition-navbar
+  transition: transform 0.3s ease-in-out
+
+.navbar-visible
+  transform: translateY(0)
+
+.navbar-hidden
+  transform: translateY(-100%)
+
+
+// Oculta/mostrar elementos manualmente si no usas clases de Bootstrap por alguna razón
+@media (min-width: 900px)
+  .d-lg-none
+    display: none !important
+
+  .d-lg-flex
+    display: flex !important
