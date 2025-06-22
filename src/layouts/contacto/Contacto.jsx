@@ -20,9 +20,10 @@ import { useLanguage } from '@/context/LanguajeContext';
 export function Contacto() {
   const { language } = useLanguage();
 
-  const bg = useColorModeValue('gray.50', 'gray.900');
-  const inputBg = useColorModeValue('white', 'gray.700');
-  const textColor = useColorModeValue('gray.800', 'gray.100');
+  // ✅ Usa colores del tema extendido (brand.*)
+  const bg = useColorModeValue('brand.lightBg', 'brand.darkBg');
+  const inputBg = useColorModeValue('brand.cardLight', 'brand.cardDark');
+  const textColor = useColorModeValue('brand.textLightPrimary', 'brand.textDarkPrimary');
 
   // Textos traducidos
   const texts = {
@@ -56,8 +57,9 @@ export function Contacto() {
       py={{ base: 16, md: 20 }}
       px={{ base: 6, md: 12 }}
       bg={bg}
+      color={textColor}
     >
-      <Container maxW="3xl" textAlign="center" color={textColor}>
+      <Container maxW="3xl" textAlign="center">
         <Heading as="h2" fontSize={{ base: '2xl', md: '3xl' }} fontWeight="bold" mb={4}>
           {t.heading}
         </Heading>
@@ -74,7 +76,11 @@ export function Contacto() {
                 placeholder={t.emailPlaceholder}
                 bg={inputBg}
                 borderRadius="md"
-                focusBorderColor="teal.400"
+                color={textColor}
+                _focus={{
+                  borderColor: 'brand.accent',
+                  boxShadow: '0 0 0 1px #0A84FF',
+                }}
               />
             </FormControl>
 
@@ -84,22 +90,26 @@ export function Contacto() {
                 placeholder={t.messagePlaceholder}
                 bg={inputBg}
                 borderRadius="md"
-                focusBorderColor="teal.400"
                 rows={5}
+                color={textColor}
+                _focus={{
+                  borderColor: 'brand.accent',
+                  boxShadow: '0 0 0 1px #0A84FF',
+                }}
               />
             </FormControl>
 
             <Center>
               <Button
                 type="submit"
-                bgGradient="linear(to-b, rgb(84, 212, 186), #54b9d0)"
+                bgGradient="linear(to-b, brand.accent, brand.accent)"
                 color="black"
                 px={8}
                 py={3}
                 borderRadius="2xl"
                 boxShadow="md"
                 _hover={{
-                  bgGradient: 'linear(to-b, #54b9d0, rgb(84, 212, 186))',
+                  bgGradient: 'linear(to-b, #0A84FF, #0A84FF)',
                   transform: 'scale(1.03)',
                 }}
                 transition="all 0.3s"

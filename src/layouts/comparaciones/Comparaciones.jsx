@@ -84,44 +84,55 @@ const IA_OPTIONS = [
 // Métricas que vamos a mostrar y graficar
 const METRICS = ['precision', 'speed', 'usability', 'price'];
 
+// Traducciones para métricas
+const translations = {
+  es: {
+    precision: 'Precisión',
+    speed: 'Velocidad',
+    usability: 'Usabilidad',
+    price: 'Precio',
+  },
+  en: {
+    precision: 'Precision',
+    speed: 'Speed',
+    usability: 'Usability',
+    price: 'Price',
+  },
+};
+
 export function Comparaciones() {
   const { language } = useLanguage();
 
   const [ia1, setIa1] = useState(IA_OPTIONS[0].id);
   const [ia2, setIa2] = useState(IA_OPTIONS[1].id);
 
-  const cardBg = useColorModeValue('white', 'gray.700');
+  const cardBg = useColorModeValue('brand.cardLight', 'brand.cardDark');
+  const gridColor = useColorModeValue('#e2e8f0', '#ffffff99');
 
   const selectedIA1 = IA_OPTIONS.find((ia) => ia.id === ia1);
   const selectedIA2 = IA_OPTIONS.find((ia) => ia.id === ia2);
 
   if (!selectedIA1 || !selectedIA2) return null;
 
-  // Función para capitalizar la primera letra
+
+  // Capitaliza la primera letra (para inglés)
   const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const chartData = useMemo(() => {
     return {
       labels: METRICS.map((m) =>
-        language === 'es'
-          ? {
-              precision: 'Precisión',
-              speed: 'Velocidad',
-              usability: 'Usabilidad',
-              price: 'Precio',
-            }[m]
-          : capitalize(m)
+        language === 'es' ? translations.es[m] : capitalize(m)
       ),
       datasets: [
         {
           label: selectedIA1.name,
           data: METRICS.map((m) => selectedIA1.metrics[m]),
-          backgroundColor: 'rgba(84, 185, 176, 0.7)',
+          backgroundColor: '#0A84FF',
         },
         {
           label: selectedIA2.name,
           data: METRICS.map((m) => selectedIA2.metrics[m]),
-          backgroundColor: 'rgba(84, 185, 176, 0.3)',
+          backgroundColor: '#205182',
         },
       ],
     };
@@ -136,18 +147,33 @@ export function Comparaciones() {
       title: {
         display: true,
         text: language === 'es' ? 'Comparativa de métricas' : 'Metrics Comparison',
+        color: useColorModeValue('gray.800', 'white'),
       },
     },
     scales: {
+      x: {
+        grid: {
+          color: gridColor,
+        },
+        ticks: {
+          color: useColorModeValue('gray.800', 'white'),
+        },
+      },
       y: {
         min: 0,
         max: 100,
+        grid: {
+          color: gridColor,
+        },
+        ticks: {
+          color: useColorModeValue('gray.800', 'white'),
+        },
       },
     },
   };
 
   return (
-    <Box id="comparativaContain" bg={useColorModeValue('gray.50', 'gray.900')} py={16}>
+    <Box id="comparativaContain" bg={useColorModeValue('brand.lightBg', 'brand.darkBg')} py={16}>
       <Container maxW="6xl">
         <Heading mb={8} textAlign="center" fontSize={{ base: '2xl', md: '4xl' }}>
           {language === 'es' ? 'Comparativas Populares' : 'Popular Comparisons'}
@@ -188,37 +214,68 @@ export function Comparaciones() {
             </Select>
           </Box>
         </SimpleGrid>
-
-        <Box bg={cardBg} rounded="xl" p={6} shadow="md" mb={10} overflowX="auto" maxW="full">
-          <Table variant="simple" size="md" whiteSpace="nowrap">
+        <Box
+          bg={cardBg}
+          rounded="xl"
+          p={6}
+          shadow="md"
+          mb={10}
+          overflowX="auto"
+          maxW="full"
+        >
+          <Table
+            variant="simple"
+            size="md"
+            whiteSpace="nowrap"
+            border="1px"
+            borderColor={gridColor}
+          >
             <Thead>
               <Tr>
-                <Th>{language === 'es' ? 'Métrica' : 'Metric'}</Th>
-                <Th textAlign="center">{selectedIA1.name}</Th>
-                <Th textAlign="center">{selectedIA2.name}</Th>
+                <Th color={gridColor} borderColor={gridColor} borderRight="1px solid">
+                  {language === 'es' ? 'Métrica' : 'Metric'}
+                </Th>
+                <Th color={gridColor} textAlign="center" borderColor={gridColor} borderRight="1px solid">
+                  {selectedIA1.name}
+                </Th>
+                <Th color={gridColor} textAlign="center" borderColor={gridColor}>
+                  {selectedIA2.name}
+                </Th>
               </Tr>
             </Thead>
             <Tbody>
               {METRICS.map((metric) => (
                 <Tr key={metric}>
-                  <Td>
-                    {language === 'es'
-                      ? {
-                          precision: 'Precisión',
-                          speed: 'Velocidad',
-                          usability: 'Usabilidad',
-                          price: 'Precio',
-                        }[metric]
-                      : capitalize(metric)}
+                  <Td
+                    color={gridColor}
+                    borderColor={gridColor}
+                    borderTop="1px solid"
+                    borderRight="1px solid"
+                  >
+                    {language === 'es' ? translations.es[metric] : capitalize(metric)}
                   </Td>
-                  <Td textAlign="center">{selectedIA1.metrics[metric]}</Td>
-                  <Td textAlign="center">{selectedIA2.metrics[metric]}</Td>
+                  <Td
+                    color={gridColor}
+                    textAlign="center"
+                    borderColor={gridColor}
+                    borderTop="1px solid"
+                    borderRight="1px solid"
+                  >
+                    {selectedIA1.metrics[metric]}
+                  </Td>
+                  <Td
+                    color={gridColor}
+                    textAlign="center"
+                    borderColor={gridColor}
+                    borderTop="1px solid"
+                  >
+                    {selectedIA2.metrics[metric]}
+                  </Td>
                 </Tr>
               ))}
             </Tbody>
           </Table>
         </Box>
-
         <Box bg={cardBg} rounded="xl" p={6} shadow="md">
           <Bar data={chartData} options={chartOptions} />
         </Box>

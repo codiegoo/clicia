@@ -121,7 +121,7 @@ export function BlogDestacados() {
 
   return (
     <Box
-      bg={containerBg}
+      bg={useColorModeValue('brand.lightBg', 'brand.darkBg')}
       py={{ base: 12, md: 16 }}
       px={{ base: 4, md: 8 }}
       position="relative"
@@ -138,26 +138,6 @@ export function BlogDestacados() {
           {language === 'es' ? 'Últimos Artículos' : 'Latest Articles'}
         </Heading>
 
-        {/* Aquí mostramos la notificación */}
-        {showScrollAlert && (
-          <Box
-            position="fixed"
-            bottom="30px"
-            left="50%"
-            transform="translateX(-50%)"
-            bg="blue.500"
-            color="white"
-            px={4}
-            py={2}
-            borderRadius="md"
-            boxShadow="md"
-            zIndex={1000}
-            fontWeight="semibold"
-            userSelect="none"
-          >
-            {language === 'es' ? 'Desliza para ver más' : 'Swipe to see more'}
-          </Box>
-        )}
 
         <IconButton
           aria-label={language === 'es' ? 'Desplazar a la izquierda' : 'Scroll left'}
@@ -169,8 +149,7 @@ export function BlogDestacados() {
           zIndex={20}
           onClick={() => scrollBy('left')}
           display={{ base: 'none', md: 'block' }}
-          bg="whiteAlpha.800"
-          _hover={{ bg: 'whiteAlpha.900' }}
+          bg={useColorModeValue('brand.cardLight', 'brand.cardDark')}
           borderRadius="full"
           boxShadow="md"
           size="lg"
@@ -186,8 +165,7 @@ export function BlogDestacados() {
           zIndex={20}
           onClick={() => scrollBy('right')}
           display={{ base: 'none', md: 'block' }}
-          bg="whiteAlpha.800"
-          _hover={{ bg: 'whiteAlpha.900' }}
+          bg={useColorModeValue('brand.cardLight', 'brand.cardDark')}
           borderRadius="full"
           boxShadow="md"
           size="lg"
@@ -212,7 +190,7 @@ export function BlogDestacados() {
               key={idx}
               flex="0 0 auto"
               w={cardWidth}
-              bg={cardBg}
+              bg={useColorModeValue('brand.cardLight', 'brand.cardDark')}
               boxShadow={cardShadow}
               p={6}
               rounded="2xl"
@@ -227,10 +205,10 @@ export function BlogDestacados() {
               <Heading as="h3" size="md" mb={2}>
                 {post.title[language]}
               </Heading>
-              <Text color="gray.600" mb={4}>
+              <Text color={useColorModeValue('brand.textLightSecondary', 'brand.textDarkSecondary')} mb={4}>
                 {post.description[language]}
               </Text>
-              <Link href={post.href} color="blue.500" fontWeight="medium">
+              <Link href={post.href} bg={useColorModeValue('brand.cardLight', 'brand.cardDark')} fontWeight="medium">
                 {language === 'es' ? 'Leer más →' : 'Read more →'}
               </Link>
             </MotionBox>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useTilt } from '@/hooks/useTilt.hooks';
 import { useEffect } from 'react';
 import './inicio.sass'
 import {
@@ -16,8 +17,23 @@ import { useLanguage } from '@/context/LanguajeContext';
 
 export default function Inicio() {
   const { language } = useLanguage();
-  const textColor = useColorModeValue('gray.900', 'gray.100');
-  const subTextColor = useColorModeValue('gray.700', 'gray.300');
+
+  // Theme-aware colors
+  const textColor = useColorModeValue('brand.textLightPrimary', 'brand.textDarkPrimary');
+  const subTextColor = useColorModeValue('brand.textLightSecondary', 'brand.textDarkSecondary');
+  const bgColor = useColorModeValue('brand.lightBg', 'brand.darkBg');
+  const cardBg = useColorModeValue('brand.cardLight', 'brand.cardDark');
+
+  // Tilt config
+  const tiltOptions = {
+    reverse: false,
+    max: 25,
+    perspective: 1500,
+    speed: 500,
+    gyroscope: true
+  };
+
+  const containerRef = useTilt(tiltOptions);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -29,8 +45,8 @@ export default function Inicio() {
       script.onload = () => {
         if (window.particleground) {
           window.particleground(document.getElementById('particles'), {
-            dotColor: '#5cbdaa',
-            lineColor: '#5cbdaa',
+            dotColor: '#0A84FF',
+            lineColor: '#0A84FF',
           });
         }
       };
@@ -74,16 +90,18 @@ export default function Inicio() {
     <Box
       id="particles"
       minHeight="100vh"
-      bg="gray.50"
+      bg={useColorModeValue('brand.lightBg', 'brand.darkBg')}
       color={textColor}
       as="main"
     >
       <Container
         id="webcoderskull"
-        maxW="6xl"
+        maxW="100%"
+        style={{ height: '35rem' }}
         py={{ base: 16, md: 24 }}
         px={{ base: 6, md: 12 }}
         textAlign="center"
+        ref={containerRef}
       >
         <VStack spacing={4}>
           <Heading
@@ -95,17 +113,22 @@ export default function Inicio() {
               ? 'Explora las Mejores Herramientas de IA en 2025'
               : 'Explore the Best AI Tools in 2025'}
           </Heading>
-          <Text fontSize={{ base: 'lg', md: 'xl' }} color="white" maxW="600px" mx="auto">
+          <Text
+            fontSize={{ base: 'lg', md: 'xl' }}
+            color={useColorModeValue('brand.textLightSecondary', 'brand.textDarkSecondary')}
+            maxW="600px"
+            mx="auto"
+          >
             {language === 'es'
               ? 'Descubre cómo la inteligencia artificial puede transformar tu productividad, negocio y vida diaria.'
               : 'Discover how artificial intelligence can transform your productivity, business, and daily life.'}
           </Text>
           <Button
             className="btnInicio"
-            bgGradient="linear(to-b, rgb(84, 212, 186), #54b9d0)"
+            bg={useColorModeValue('brand.accent', 'brand.accent')}
             color="white"
             _hover={{
-              bgGradient: 'linear(to-b, #54b9d0, rgb(84, 212, 186))',
+              bg: 'brand.accent',
               transform: 'scale(1.05)',
             }}
             transition="all 0.3s"
@@ -118,7 +141,7 @@ export default function Inicio() {
       <Box
         id="homeCardContain"
         borderTop="1px solid"
-        borderColor="gray.200"
+        borderColor={useColorModeValue('gray.200', 'gray.700')}
         py={{ base: 12, md: 16 }}
         px={{ base: 6, md: 12 }}
       >
@@ -128,14 +151,16 @@ export default function Inicio() {
               <Box
                 key={title[language]}
                 p={6}
-                bgGradient="linear(to-b,rgb(84, 212, 186), #54b9d0)"
+                bg={useColorModeValue('brand.cardLight', 'brand.cardDark')}
                 borderRadius="2xl"
                 boxShadow="sm"
               >
-                <Heading as="h2" size="lg" mb={2} color="white">
+                <Heading as="h2" size="lg" mb={2} color={textColor}>
                   {title[language]}
                 </Heading>
-                <Text color="whiteAlpha.800">{description[language]}</Text>
+                <Text color={useColorModeValue('brand.textLightSecondary', 'brand.textDarkSecondary')}q>
+                  {description[language]}
+                </Text>
               </Box>
             ))}
           </SimpleGrid>

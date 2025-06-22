@@ -13,6 +13,8 @@ export const metadata = {
   description: "Automatiza a tu favor",
 };
 
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

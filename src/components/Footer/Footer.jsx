@@ -32,7 +32,7 @@ export function Footer() {
   return (
     <Box
       as="footer"
-      bgGradient="linear(to-b, rgb(84, 212, 186), #54b9d0)"
+      bgGradient="linear(to-b, #0A84FF, #0A84FF)"
       color="black"
       py={{ base: 2, md: 4 }}
     >

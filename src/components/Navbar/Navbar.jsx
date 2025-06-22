@@ -11,6 +11,7 @@ import {
   useColorMode,
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { useColorModeValue } from '@chakra-ui/react';
 
 import './nav.sass'
 
@@ -19,6 +20,15 @@ export default function Navbar() {
   const [lastScrollY, setLastScrollY] = useState(0)
   const { colorMode, toggleColorMode } = useColorMode()
   const { language, setLanguage } = useLanguage()
+
+
+
+   // 🎨 Colores adaptados del theme
+  const buttonBg = useColorModeValue('brand.cardLight', 'brand.cardDark');
+  const buttonColor = useColorModeValue('brand.textLightPrimary', 'brand.textDarkPrimary');
+  const buttonHover = useColorModeValue('gray.100', 'gray.700');
+  const borderColor = useColorModeValue('gray.300', 'whiteAlpha.300');
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +50,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: language === 'es' ? 'Inicio' : 'Home', id: 'particles' },
+    { label: language === 'es' ? 'Blog' : 'Blog', path: '/blog' },
     { label: language === 'es' ? 'Herramientas' : 'Tools', id: 'herramientasContain' },
     { label: language === 'es' ? 'Comparativas' : 'Comparisons', id: 'comparativaContain' },
     { label: language === 'es' ? 'Contacto' : 'Contact', id: 'contactoContain' },
@@ -131,28 +142,41 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Botón para cambiar modo oscuro/claro */}
           <IconButton
-            ml={2}
             aria-label="Toggle dark mode"
             icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
             onClick={toggleColorMode}
-            variant="unstyled"
+            bg={buttonBg}
+            color={buttonColor}
+            _hover={{ bg: buttonHover }}
+            borderWidth="1px"
+            borderColor={borderColor}
             size="sm"
-            color="black"
-            _hover={{ bg: 'transparent' }}
+            rounded="md"
+            ml={2}
           />
 
           {/* Selector de idioma */}
           <Menu>
             <MenuButton
               ml={2}
-              className="btn btn-light btn-sm"
-              aria-label="Toggle language"
+              px={3}
+              py={1.5}
+              fontSize="sm"
+              bg={buttonBg}
+              color={buttonColor}
+              borderWidth="1px"
+              borderColor={borderColor}
+              _hover={{ bg: buttonHover }}
+              rounded="md"
             >
               {language.toUpperCase()}
             </MenuButton>
-            <MenuList>
+            <MenuList
+              bg={useColorModeValue('white', 'gray.800')}
+              color={buttonColor}
+              borderColor={borderColor}
+            >
               <MenuItem onClick={() => setLanguage('es')}>Español</MenuItem>
               <MenuItem onClick={() => setLanguage('en')}>English</MenuItem>
             </MenuList>

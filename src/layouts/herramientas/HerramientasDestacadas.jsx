@@ -90,14 +90,17 @@ const herramientas = [
 ];
 
 export function HerramientasDestacadas() {
-  const cardBg = useColorModeValue('white', 'gray.800');
-  const textColor = useColorModeValue('gray.800', 'gray.100');
+  const cardBg = useColorModeValue('brand.cardLight', 'brand.cardDark'); // Ej: '#F8FAFC' / '#1F2937'
+  const textColor = useColorModeValue('brand.textLightPrimary', 'brand.textDarkPrimary'); // Ej: '#1F2937' / '#D1D5DB'
+  const descColor = useColorModeValue('brand.textLightSecondary', 'brand.textDarkSecondary'); // Ej: '#4A5568' / '#A0AEC0'
+  const buttonBg = useColorModeValue('brand.accent', 'brand.accent'); // Color azul que definiste
+  const buttonText = useColorModeValue('brand.textLightBg', 'brand.textDarkBg'); // Ej: 'white' o '#111820'
   const { language } = useLanguage();
 
   return (
-    <Box id="herramientasContain" bg={useColorModeValue('gray.50', 'gray.900')} py={16}>
+    <Box id="herramientasContain" bg={useColorModeValue('brand.lightBg', 'brand.darkBg')} py={16}>
       <Container maxW="6xl">
-        <Heading textAlign="center" fontSize={{ base: '2xl', md: '4xl' }} mb={10}>
+        <Heading textAlign="center" fontSize={{ base: '2xl', md: '4xl' }} mb={10} color={textColor}>
           {language === 'es' ? 'Herramientas Recomendadas' : 'Recommended Tools'}
         </Heading>
 
@@ -118,17 +121,18 @@ export function HerramientasDestacadas() {
             >
               <VStack spacing={3} align="start">
                 <Heading fontSize="xl">{tool.nombre[language]}</Heading>
-                <Text>{tool.descripcion[language]}</Text>
+                <Text color={descColor}>{tool.descripcion[language]}</Text>
                 <Button
                   as={Link}
                   href={tool.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  bgGradient="linear(to-b, rgb(84, 212, 186), #54b9d0)"
-                  color="white"
+                  bg={buttonBg}
+                  color={buttonText}
                   _hover={{
-                    bgGradient: 'linear(to-b, #54b9d0, rgb(84, 212, 186))',
+                    bg: buttonBg,
                     transform: 'scale(1.03)',
+                    textDecoration: 'none',
                   }}
                   transition="all 0.3s"
                   mt={2}
