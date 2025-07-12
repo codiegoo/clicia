@@ -1,4 +1,5 @@
 'use client';
+
 import {
   Box,
   Heading,
@@ -11,10 +12,10 @@ import {
 } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { motion } from 'framer-motion';
-const MotionBox = motion(Box);
-import { useLanguage } from '@/context/LanguajeContext'; 
 import { useRef, useState, useEffect } from 'react';
+import { useLanguage } from '@/context/LanguajeContext';
 
+const MotionBox = motion(Box);
 
 const posts = [
   {
@@ -68,27 +69,29 @@ export function BlogDestacados() {
 
   const cardBg = useColorModeValue('white', 'gray.700');
   const cardShadow = useColorModeValue('md', 'dark-lg');
-  const containerBg = useColorModeValue('gray.50', 'gray.900');
 
   const scrollRef = useRef(null);
-  const gap = 24;
-  const visibleCards = useBreakpointValue({ base: 1, md: 3 }) || 3;
-  const cardWidth = useBreakpointValue({ base: '90vw', md: '320px' });
 
-  const [showScrollAlert, setShowScrollAlert] = useState(false);
+  const gap = useBreakpointValue({ base: 10, md: 16 });
+  const cardWidth = useBreakpointValue({
+    base: '80%',
+    sm: '80%',
+    md: '70%',
+    lg: '60%',
+  });
+
   const alertShownRef = useRef(false);
 
   const scrollBy = (dir) => {
     if (!scrollRef.current) return;
 
-    const cardWidthNum =
-      typeof cardWidth === 'string' && cardWidth.endsWith('px')
-        ? parseInt(cardWidth)
-        : 300;
+    const containerWidth = scrollRef.current.clientWidth;
+    const scrollAmount = containerWidth * 0.8;
 
-    const scrollAmount = (cardWidthNum + gap) * visibleCards;
-
-    scrollRef.current.scrollBy({ left: dir === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    scrollRef.current.scrollBy({
+      left: dir === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
   };
 
   useEffect(() => {
@@ -97,47 +100,35 @@ export function BlogDestacados() {
     const scrollEl = scrollRef.current;
 
     const handleScroll = () => {
-      console.log('scroll detected');
       if (!alertShownRef.current) {
         setShowScrollAlert(true);
         alertShownRef.current = true;
-
         setTimeout(() => setShowScrollAlert(false), 3000);
       }
     };
 
     scrollEl.addEventListener('scroll', handleScroll);
-
     return () => scrollEl.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    if (showScrollAlert) {
-      const timer = setTimeout(() => setShowScrollAlert(false), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [showScrollAlert]);
-
 
   return (
     <Box
       bg={useColorModeValue('brand.lightBg', 'brand.darkBg')}
-      py={{ base: 12, md: 16 }}
-      px={{ base: 4, md: 8 }}
+      py={{ base: 12, md: 10 }}
+      px={{ base: 4, md: 6 }}
       position="relative"
       overflow="visible"
-      mx={{ base: '-20px', md: 'auto' }}
+      mx="auto"
     >
       <Container
-        maxW="6xl"
+        maxW="61%"
         position="relative"
         overflow="visible"
-        p="4"
+        p={{ base: 4, md: 6 }}
       >
-        <Heading as="h2" size="xl" textAlign="center" mb={10}>
+        <Heading as="h2" fontSize={{ base: '2xl', md: '3xl' }} textAlign="center" mb={10}>
           {language === 'es' ? 'Últimos Artículos' : 'Latest Articles'}
         </Heading>
-
 
         <IconButton
           aria-label={language === 'es' ? 'Desplazar a la izquierda' : 'Scroll left'}
@@ -149,9 +140,9 @@ export function BlogDestacados() {
           zIndex={20}
           onClick={() => scrollBy('left')}
           display={{ base: 'none', md: 'block' }}
-          bg={useColorModeValue('brand.cardLight', 'brand.cardDark')}
+          bg={cardBg}
           borderRadius="full"
-          boxShadow="md"
+          boxShadow={cardShadow}
           size="lg"
         />
 
@@ -165,9 +156,9 @@ export function BlogDestacados() {
           zIndex={20}
           onClick={() => scrollBy('right')}
           display={{ base: 'none', md: 'block' }}
-          bg={useColorModeValue('brand.cardLight', 'brand.cardDark')}
+          bg={cardBg}
           borderRadius="full"
-          boxShadow="md"
+          boxShadow={cardShadow}
           size="lg"
         />
 
@@ -181,34 +172,43 @@ export function BlogDestacados() {
             scrollbarWidth: 'none',
           }}
           display="flex"
-          gap={`${gap}px`}
+          gap={gap + 'px'}
           position="relative"
-          p="8"
+          px={{ base: 2, md: 4 }}
         >
           {posts.map((post, idx) => (
             <MotionBox
               key={idx}
               flex="0 0 auto"
               w={cardWidth}
-              bg={useColorModeValue('brand.cardLight', 'brand.cardDark')}
-              boxShadow={cardShadow}
-              p={6}
+              minW={cardWidth}
+              bg={cardBg}
+              p={3}
               rounded="2xl"
               cursor="pointer"
               overflow="visible"
-              initial={{ opacity: 0, y: 20 }}
+              mx={{ base: '20px', md: 0 }}
+              margin="10% 10%"
+              initial={{ opacity: 0, y: 20, boxShadow: '0px 4px 8px rgba(0,0,0,0.06)' }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: idx * 0.15 }}
-              whileHover={{ scale: 1.05, boxShadow: '0px 10px 20px rgba(0,0,0,0.12)' }}
-              mx={{ base: '10px', md: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut', delay: idx * 0.15 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: '0px 5px 10px rgba(0,0,0,0.12)',
+                transition: {
+                  duration: 0.3,
+                  ease: 'easeInOut',
+                  type: 'tween',
+                },
+              }}
             >
-              <Heading as="h3" size="md" mb={2}>
+              <Heading as="h3" size="md" mb={1}>
                 {post.title[language]}
               </Heading>
-              <Text color={useColorModeValue('brand.textLightSecondary', 'brand.textDarkSecondary')} mb={4}>
+              <Text color={useColorModeValue('gray.600', 'gray.300')} mb={4}>
                 {post.description[language]}
               </Text>
-              <Link href={post.href} bg={useColorModeValue('brand.cardLight', 'brand.cardDark')} fontWeight="medium">
+              <Link href={post.href} color="teal.500" fontWeight="medium">
                 {language === 'es' ? 'Leer más →' : 'Read more →'}
               </Link>
             </MotionBox>

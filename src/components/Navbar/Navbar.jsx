@@ -76,10 +76,11 @@ export default function Navbar() {
           className="navbar-brand"
           href="#particles"
           onClick={handleClick('particles')}
+          style={{color: "white", fontWeight: "bold", fontSize: "1.5rem"}}
         >
-          TuSitio IA
+          ClicIA
         </a>
-
+      
         {/* Botón hamburguesa SOLO visible en pantallas pequeñas */}
         <button
           className="navbar-toggler d-block d-lg-none"
@@ -110,16 +111,23 @@ export default function Navbar() {
           </div>
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-              {navLinks.map(({ label, id }) => (
-                <li key={id} className="nav-item">
-                  <a
-                    href={`#${id}`}
-                    className="nav-link"
-                    onClick={handleClick(id)}
-                    data-bs-dismiss="offcanvas"
-                  >
-                    {label}
-                  </a>
+              {navLinks.map(({ label, id, path }) => (
+                <li key={id || path} className="nav-item">
+                  {path ? (
+                    // 👉 Es un enlace de página
+                    <a href={path} className="nav-link">
+                      {label}
+                    </a>
+                  ) : (
+                    // 👉 Es un enlace de scroll interno
+                    <a
+                      href={`#${id}`}
+                      className="nav-link"
+                      onClick={handleClick(id)}
+                    >
+                      {label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -129,18 +137,27 @@ export default function Navbar() {
         {/* Menú normal visible SOLO en pantallas grandes */}
         <div className="d-none d-lg-flex align-items-center" id="navbarLinks">
           <ul className="navbar-nav flex-row gap-3 me-3">
-            {navLinks.map(({ label, id }) => (
-              <li key={id} className="nav-item">
-                <a
-                  href={`#${id}`}
-                  className="nav-link"
-                  onClick={handleClick(id)}
-                >
-                  {label}
-                </a>
+            {navLinks.map(({ label, id, path }) => (
+              <li key={id || path} className="nav-item">
+                {path ? (
+                  // 👉 Es un enlace de página
+                  <a href={path} className="nav-link">
+                    {label}
+                  </a>
+                ) : (
+                  // 👉 Es un enlace de scroll interno
+                  <a
+                    href={`#${id}`}
+                    className="nav-link"
+                    onClick={handleClick(id)}
+                  >
+                    {label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
+
 
           <IconButton
             aria-label="Toggle dark mode"

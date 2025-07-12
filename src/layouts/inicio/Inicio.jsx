@@ -89,10 +89,10 @@ export default function Inicio() {
   return (
     <Box
       id="particles"
-      minHeight="100vh"
       bg={useColorModeValue('brand.lightBg', 'brand.darkBg')}
       color={textColor}
       as="main"
+      className='inicioContain'
     >
       <Container
         id="webcoderskull"
@@ -102,11 +102,12 @@ export default function Inicio() {
         px={{ base: 6, md: 12 }}
         textAlign="center"
         ref={containerRef}
+        className='inicioInner'
       >
-        <VStack spacing={4}>
+        <VStack spacing={2}>
           <Heading
             as="h1"
-            fontSize={{ base: '2.5xl', md: '4.5xl' }}
+            fontSize={{ base: '2xl', md: '4xl' }}
             fontWeight="bold"
           >
             {language === 'es'
@@ -115,7 +116,7 @@ export default function Inicio() {
           </Heading>
           <Text
             fontSize={{ base: 'lg', md: 'xl' }}
-            color={useColorModeValue('brand.textLightSecondary', 'brand.textDarkSecondary')}
+            color="white"
             maxW="600px"
             mx="auto"
           >
@@ -145,17 +146,18 @@ export default function Inicio() {
         py={{ base: 12, md: 16 }}
         px={{ base: 6, md: 12 }}
       >
-        <Container maxW="6xl">
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+        <Container maxW="85%">
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4}>
             {cards.map(({ title, description }) => (
               <Box
                 key={title[language]}
-                p={6}
+                p={2}
                 bg={useColorModeValue('brand.cardLight', 'brand.cardDark')}
                 borderRadius="2xl"
                 boxShadow="sm"
+                className='cardContain'
               >
-                <Heading as="h2" size="lg" mb={2} color={textColor}>
+                <Heading as="h2" className='cardTitleInicio'  size="md" mb={1} color={textColor}>
                   {title[language]}
                 </Heading>
                 <Text color={useColorModeValue('brand.textLightSecondary', 'brand.textDarkSecondary')}q>

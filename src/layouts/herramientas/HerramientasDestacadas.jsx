@@ -94,17 +94,16 @@ export function HerramientasDestacadas() {
   const textColor = useColorModeValue('brand.textLightPrimary', 'brand.textDarkPrimary'); // Ej: '#1F2937' / '#D1D5DB'
   const descColor = useColorModeValue('brand.textLightSecondary', 'brand.textDarkSecondary'); // Ej: '#4A5568' / '#A0AEC0'
   const buttonBg = useColorModeValue('brand.accent', 'brand.accent'); // Color azul que definiste
-  const buttonText = useColorModeValue('brand.textLightBg', 'brand.textDarkBg'); // Ej: 'white' o '#111820'
   const { language } = useLanguage();
 
   return (
     <Box id="herramientasContain" bg={useColorModeValue('brand.lightBg', 'brand.darkBg')} py={16}>
-      <Container maxW="6xl">
-        <Heading textAlign="center" fontSize={{ base: '2xl', md: '4xl' }} mb={10} color={textColor}>
+      <Container maxW="68%">
+        <Heading textAlign="center" fontSize={{ base: '2xl', md: '3xl' }} mb={10} color={textColor}>
           {language === 'es' ? 'Herramientas Recomendadas' : 'Recommended Tools'}
         </Heading>
 
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8} justifyItems="center">
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={4} justifyItems="center">
           {herramientas.map((tool, idx) => (
             <Flex
               key={idx}
@@ -112,14 +111,14 @@ export function HerramientasDestacadas() {
               bg={cardBg}
               color={textColor}
               borderRadius="2xl"
-              p={5}
+              p={3}
               shadow="md"
               maxW="sm"
               w="100%"
               transition="all 0.3s"
               _hover={{ shadow: 'lg', transform: 'translateY(-4px)' }}
             >
-              <VStack spacing={3} align="start">
+              <VStack spacing={1} align="start">
                 <Heading fontSize="xl">{tool.nombre[language]}</Heading>
                 <Text color={descColor}>{tool.descripcion[language]}</Text>
                 <Button
@@ -128,7 +127,7 @@ export function HerramientasDestacadas() {
                   target="_blank"
                   rel="noopener noreferrer"
                   bg={buttonBg}
-                  color={buttonText}
+                  color="white"
                   _hover={{
                     bg: buttonBg,
                     transform: 'scale(1.03)',

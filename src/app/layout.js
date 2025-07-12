@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.css'
 import Bootstrap from "@/components/Bootstrap/Bootstrap";
+import './main.sass'
+import { Providers } from "@/providers/chakra.provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "ClicIA",
+  title: "Clic-IA",
   description: "Automatiza a tu favor",
 };
 
@@ -21,7 +23,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} antialiased`}
       >
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         <Bootstrap/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" />
       </body>

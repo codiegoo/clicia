@@ -174,8 +174,8 @@ export function Comparaciones() {
 
   return (
     <Box id="comparativaContain" bg={useColorModeValue('brand.lightBg', 'brand.darkBg')} py={16}>
-      <Container maxW="6xl">
-        <Heading mb={8} textAlign="center" fontSize={{ base: '2xl', md: '4xl' }}>
+      <Container maxW="68%">
+        <Heading mb={10} textAlign="center" fontSize={{ base: '2xl', md: '3xl' }}>
           {language === 'es' ? 'Comparativas Populares' : 'Popular Comparisons'}
         </Heading>
 
