@@ -3,7 +3,7 @@ title: "¿Qué negocio deberías empezar según la IA? | Ideas de negocio person
 slug: "negocio-ideal-ia"
 summary: "Descubre con la ayuda de la inteligencia artificial qué tipo de negocio encaja con tu estilo de vida, talentos y sueños. Aprende a usar ChatGPT para generar ideas rentables y empezar tu emprendimiento paso a paso."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?business,startup,entrepreneur"
+image: "/images/queNegocioEmpezar.webp"
 tags: ["IA", "Inteligencia Artificial", "Emprendimiento", "Negocios", "Ideas de negocio", "ChatGPT", "Productividad", "Startups", "Plan de negocio"]
 ---
 

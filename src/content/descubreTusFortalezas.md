@@ -3,7 +3,7 @@ title: "Descubre tus fortalezas ocultas con inteligencia artificial"
 slug: "fortalezas-ocultas-ia"
 summary: "Utiliza la inteligencia artificial para identificar tus habilidades y talentos ocultos y potenciar tu crecimiento personal y profesional."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?strengths,personal-growth,ai"
+image: "/images/descubreTusFortalezas.webp"
 tags: ["Fortalezas ocultas", "Inteligencia Artificial", "Crecimiento personal", "Talentos", "Autoexploración", "Coaching con IA", "Desarrollo profesional"]
 ---
 

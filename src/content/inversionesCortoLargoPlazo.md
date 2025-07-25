@@ -3,7 +3,7 @@ title: "Cómo usar IA para encontrar las mejores opciones de inversión a corto 
 slug: "ia-inversiones-corto-largo-plazo"
 summary: "Descubre cómo la inteligencia artificial puede ayudarte a identificar oportunidades de inversión seguras y rentables, adaptadas a tus objetivos financieros y perfil de riesgo."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?investment,money,finance,ai"
+image: "/images/inversionesCortoLargoPlazo.webp"
 tags: ["IA", "Inversiones", "Robo-advisors", "Finanzas personales", "Inversión inteligente", "Ahorro e inversión", "Análisis financiero", "Riesgos financieros", "Portafolio diversificado"]
 ---
 

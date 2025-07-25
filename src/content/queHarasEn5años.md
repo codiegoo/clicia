@@ -3,7 +3,7 @@ title: "Descubre qué harás en 5 años (según la IA) | Predice tu futuro con i
 slug: "predice-tu-futuro-ia"
 summary: "Usa la inteligencia artificial para simular cómo podrían ser tus hábitos, metas y estilo de vida dentro de 5 años. Descubre cómo mejorar tu futuro desde hoy con IA."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?future,goals,ai"
+image: "/images/queHarasEn5años.webp"
 tags: ["IA", "Inteligencia Artificial", "Productividad", "Hábitos", "Metas personales", "Autoconocimiento", "Crecimiento personal", "ChatGPT", "Futuro"]
 ---
 

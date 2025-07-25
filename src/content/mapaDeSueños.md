@@ -3,7 +3,7 @@ title: "Crea tu mapa de sueños con IA: visualiza y logra tus metas"
 slug: "mapa-suenos-ia"
 summary: "Aprende a diseñar un mapa de sueños o vision board con ayuda de la inteligencia artificial. Organiza tus metas, encuentra imágenes motivadoras y mantén tu visión clara."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?visionboard,dreams,ai,goals"
+image: "/images/mapaDeSueños.webp"
 tags: ["Mapa de sueños", "Vision board", "IA", "Coaching", "Motivación", "Productividad", "Visualización de metas", "DALL·E", "Midjourney", "Canva"]
 ---
 

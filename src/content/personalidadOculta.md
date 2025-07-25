@@ -3,7 +3,7 @@ title: "¿Qué dice la IA sobre tu personalidad oculta? Descúbrelo gratis con i
 slug: "descubre-personalidad-ia"
 summary: "Usa inteligencia artificial para revelar rasgos ocultos de tu personalidad, descubrir talentos escondidos y recibir consejos prácticos para potenciar tus fortalezas."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?mystery,personality,ai"
+image: "/images/personalidadOculta.webp"
 tags: ["IA", "Inteligencia Artificial", "Autoconocimiento", "Test de personalidad", "Desarrollo personal", "Crecimiento personal", "ChatGPT", "Rasgos ocultos", "Psicología"]
 ---
 

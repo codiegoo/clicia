@@ -3,7 +3,7 @@ title: "Descubre tu estilo de vida ideal con IA: guía práctica y divertida"
 slug: "descubre-tu-estilo-de-vida-con-ia"
 summary: "Aprende a usar inteligencia artificial para obtener consejos personalizados que mejoran tu rutina y bienestar diario."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?lifestyle,ai,wellness"
+image: "/images/estiloDeVida.webp"
 tags: ["Inteligencia Artificial", "Estilo de vida", "Bienestar", "Salud", "Productividad", "IA aplicada", "Consejos personalizados"]
 ---
 

@@ -3,7 +3,7 @@ title: "Las 5 mejores herramientas de IA para diseño gráfico en 2025"
 slug: "top-herramientas-ia-diseno"
 summary: "Descubre y compara las mejores herramientas de inteligencia artificial para diseñar imágenes, editar videos y crear contenido visual de forma fácil, rápida y profesional."
 date: "2025-06-12"
-image: "https://source.unsplash.com/400x300/?design,ai,creative"
+image: "/images/mejoresHerramientasDeDiseño.webp"
 tags: ["IA", "Diseño gráfico", "Herramientas creativas", "Midjourney", "Canva", "Adobe Firefly", "Runway ML", "Copywriting IA", "Productividad creativa", "Marketing digital"]
 ---
 

@@ -3,7 +3,7 @@ title: "Organiza tu día como un pro con IA: el asistente inteligente que siempr
 slug: "organiza-tu-dia-con-ia"
 summary: "Descubre cómo usar la inteligencia artificial para planificar tu día, priorizar tareas, gestionar tu tiempo y evitar el estrés sin complicaciones."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?planner,productivity,ai"
+image: "/images/organizaTuDia.webp"
 tags: ["IA", "Productividad", "Organización personal", "Asistente virtual", "ChatGPT", "Gestión del tiempo", "Planificación diaria", "Rutinas efectivas", "Optimización del tiempo"]
 ---
 

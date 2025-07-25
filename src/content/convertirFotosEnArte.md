@@ -3,7 +3,7 @@ title: "Convierte tus fotos en arte con IA sin saber dibujar"
 slug: "fotos-a-arte-con-ia"
 summary: "Aprende a transformar tus fotos en obras de arte digitales usando inteligencia artificial, paso a paso y sin complicaciones."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?art,photo,ai"
+image: "/images/convertirFotosEnArte.webp"
 tags: ["Arte con IA", "Fotografía creativa", "Generar arte con inteligencia artificial", "Edición de fotos", "Estilos artísticos", "Apps de arte IA", "Transformar fotos en dibujos"]
 ---
 

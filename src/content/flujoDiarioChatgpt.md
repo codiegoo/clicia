@@ -3,7 +3,7 @@ title: "Cómo usar ChatGPT para aumentar tu productividad: Guía paso a paso"
 slug: "chatgpt-productividad"
 summary: "Descubre cómo usar ChatGPT para automatizar tareas, ahorrar tiempo y mejorar tu productividad diaria."
 date: "2025-06-15"
-image: "https://source.unsplash.com/400x300/?productivity,workspace"
+image: "/images/flujoDiarioChatgpt.webp"
 tags: ["ChatGPT", "Productividad", "Automatización", "IA", "Trabajo eficiente", "Ahorro de tiempo", "Asistente virtual"]
 ---
 

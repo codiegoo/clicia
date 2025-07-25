@@ -3,7 +3,7 @@ title: "Cómo usar la IA para encontrar ideas de negocio rentables"
 slug: "ideas-negocio-ia"
 summary: "¿Sin ideas? Deja que la IA trabaje por ti: analiza tendencias, combina tus habilidades y descubre oportunidades de negocio rentables y escalables."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?entrepreneur,business,ideas,ai"
+image: "/images/ideasDeNegocio.webp"
 tags: ["Ideas de negocio", "Emprendimiento", "IA para negocios", "Startups", "Negocios rentables", "Inteligencia Artificial", "Generar ideas con IA", "Plan de negocio", "Tendencias de mercado"]
 ---
 

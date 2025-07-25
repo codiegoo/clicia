@@ -3,7 +3,7 @@ title: "Descubre tu personalidad lunar con IA y ChatGPT"
 slug: "personalidad-lunar-ia-chatgpt"
 summary: "Descubre cómo la luna influye en tu personalidad y emociones usando inteligencia artificial y ChatGPT de forma sencilla y divertida."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?moon,personality,astrology"
+image: "/images/descubrePersonalidad.webp"
 tags: ["Astrología lunar", "Personalidad", "Inteligencia Artificial", "ChatGPT", "Autoconocimiento", "Fases de la luna", "Horóscopo"]
 ---
 

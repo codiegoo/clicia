@@ -3,7 +3,7 @@ title: "Organiza tu vida diaria con IA: la asistente personal que transformará 
 slug: "organiza-tu-vida-con-ia"
 summary: "Aprende a usar herramientas de inteligencia artificial para planificar tu día, priorizar tareas, gestionar tu tiempo y reducir el estrés de forma simple y efectiva."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?organization,productivity,ai"
+image: "/images/organizacionPersonal.webp"
 tags: ["IA", "Productividad", "Organización personal", "Gestión del tiempo", "Asistente virtual", "ChatGPT", "Apps de organización", "Planificación diaria", "Rutinas inteligentes"]
 ---
 

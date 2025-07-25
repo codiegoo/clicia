@@ -1,16 +1,19 @@
 "use client";
 
-import Link from "next/link";
+import NextLink from "next/link";
 import {
   Box,
   Heading,
   Text,
   Image,
-  Grid,
-  Flex,
+  SimpleGrid,
   useColorModeValue,
+  AspectRatio,
+  chakra,
 } from "@chakra-ui/react";
 import BlogNavbar from "@/components/BlogNavbar/BlogNavbar";
+
+const ChakraLink = chakra(NextLink);
 
 export default function BlogList({ posts }) {
   const handleFilterChange = (filter) => {
@@ -18,9 +21,9 @@ export default function BlogList({ posts }) {
   };
 
   const bgColor = useColorModeValue("#F8FAFC", "#111820");
-  const cardBg = useColorModeValue("white", "#1A202C");
-  const borderColor = useColorModeValue("gray.200", "gray.700");
+  const cardBg = useColorModeValue("white", "gray.800");
   const accentColor = "#0A84FF";
+  const shadow = useColorModeValue("lg", "dark-lg");
 
   return (
     <>
@@ -39,46 +42,59 @@ export default function BlogList({ posts }) {
           Blog
         </Heading>
 
-        <Grid
-          maxW="5xl"
-          mx="auto"
-          templateColumns={{ base: "1fr", md: "1fr 1fr" }}
-          gap={8}
-        >
-          {posts.map((post) => (
-            <Flex
-              key={post.slug}
-              as={Link}
-              href={`/blog/${post.slug}`}
-              direction={{ base: "column", md: "row" }}
-              bg={cardBg}
-              borderWidth="1px"
-              borderColor={borderColor}
-              borderRadius="lg"
-              overflow="hidden"
-              shadow="sm"
-              _hover={{ shadow: "md" }}
-              transition="all 0.2s"
-            >
-              <Image
-                src={post.image}
-                alt={post.title}
-                objectFit="cover"
-                w={{ base: "100%", md: "40%" }}
-                h="200px"
-              />
-              <Box p={4} flex="1">
-                <Heading as="h2" fontSize="xl" mb={2} color={accentColor}>
-                  {post.title}
-                </Heading>
-                <Text fontSize="sm" color="gray.500" mb={2}>
-                  {post.date}
-                </Text>
-                <Text>{post.summary}</Text>
-              </Box>
-            </Flex>
-          ))}
-        </Grid>
+        <Box maxW="60%" mx="auto">
+          <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={8}>
+            {posts.map((post) => (
+              <ChakraLink
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                _hover={{ textDecoration: "none" }}
+              >
+                <Box
+                  bg={cardBg}
+                  borderRadius="xl"
+                  overflow="hidden"
+                  boxShadow={shadow}
+                  transition="all 0.3s ease"
+                  _hover={{
+                    transform: "translateY(-4px)",
+                    boxShadow: "xl",
+                  }}
+                >
+                  <AspectRatio ratio={1} w="100%">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      objectFit="cover"
+                    />
+                  </AspectRatio>
+
+                  <Box p={5}>
+                    <Heading
+                      as="h2"
+                      fontSize="lg"
+                      mb={2}
+                      color={accentColor}
+                      noOfLines={2}
+                    >
+                      {post.title}
+                    </Heading>
+                    <Text fontSize="sm" color="gray.500" mb={1}>
+                      {post.date}
+                    </Text>
+                    <Text
+                      fontSize="sm"
+                      color={useColorModeValue("gray.700", "gray.300")}
+                      noOfLines={3}
+                    >
+                      {post.summary}
+                    </Text>
+                  </Box>
+                </Box>
+              </ChakraLink>
+            ))}
+          </SimpleGrid>
+        </Box>
       </Box>
     </>
   );

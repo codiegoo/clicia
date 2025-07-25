@@ -3,7 +3,7 @@ title: "Descubre qué eventos del tarot te esperan este 2025 con ChatGPT"
 slug: "tarot-chatgpt-2025"
 summary: "Aprende a usar inteligencia artificial para hacer lecturas de tarot personalizadas y conocer tu futuro de forma práctica y divertida."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?tarot,mystic"
+image: "/images/eventosTarotEsteAño.webp"
 tags: ["Tarot", "ChatGPT", "Inteligencia Artificial", "Lecturas de tarot", "Futuro 2025", "Espiritualidad", "IA aplicada"]
 ---
 

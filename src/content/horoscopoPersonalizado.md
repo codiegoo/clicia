@@ -3,7 +3,7 @@ title: "¿Qué te depara el futuro? Descubre tu horóscopo personalizado con IA"
 slug: "horoscopo-personalizado-ia"
 summary: "Usa la inteligencia artificial para obtener predicciones únicas y consejos personalizados para tu día a día."
 date: "2025-07-10"
-image: "https://source.unsplash.com/400x300/?horoscope,stars,mystic"
+image: "/images/horoscopoPersonalizado.webp"
 tags: ["Horóscopo", "Astrología", "Inteligencia Artificial", "Predicciones personalizadas", "Bienestar", "Consejos diarios", "Zodiaco", "Horóscopo IA"]
 ---
 
